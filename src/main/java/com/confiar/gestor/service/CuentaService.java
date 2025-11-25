@@ -16,11 +16,16 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 
 @Service
-@RequiredArgsConstructor
 public class CuentaService {
 
     private final CuentaRepository cuentaRepository;
     private final ClienteRepository clienteRepository;
+
+    public CuentaService(CuentaRepository cuentaRepository, ClienteRepository clienteRepository) {
+        this.cuentaRepository = cuentaRepository;
+        this.clienteRepository = clienteRepository;
+    }
+
 
     @Transactional
     public void crearCuenta(CreacionCuentaDto dto) {
